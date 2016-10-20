@@ -1,0 +1,7 @@
+<ul>
+  <li ng-repeat="item in narrowItDown.items">
+      {{ item.name }} - {{ item.short_name }} - {{ item.description }}
+	  <button ng-click="narrowItDown.onRemove({index: $index})" class="btn btn-secondary">Don't want this one!</button>
+  </li>
+</ul>
+<div class="error" ng-transclude></div>
