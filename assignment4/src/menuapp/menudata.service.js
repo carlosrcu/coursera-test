@@ -10,21 +10,20 @@ function MenuDataService($http, ApiBasePath) {
   var service = this;
 
   service.getAllCategories = function () {
-    var response = $http({
-      method: "GET",
-      url: (ApiBasePath + "/categories.json")
+    return $http.get(ApiBasePath + '/categories.json').then(function (response) {
+      return response.data;
     });
-
-    return response;
   }
 
   service.getItemsForCategory = function (categoryShortName) {
-    var response = $http({
-      method: "GET",
-      url: (ApiBasePath + "/menu_items.json?category=" + categoryShortName)
-    });
+    var config = {};
+    if (categoryShortName) {
+      config.params = {'category': categoryShortName};
+    }
 
-    return response;
+    return $http.get(ApiBasePath + '/menu_items.json', config).then(function (response) {
+      return response.data;
+    });
   }
 
 }

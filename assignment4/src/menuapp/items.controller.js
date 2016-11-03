@@ -4,11 +4,11 @@
 angular.module('Data')
 .controller('ItemsController', ItemsController);
 
-ItemsController.$inject = ['response'];
-function ItemsController(response) {
-  var items = this;
+ItemsController.$inject = ['items'];
+function ItemsController(items) {
+  var $ctrl = this;
 
-  items.list = response.data.menu_items;
+  $ctrl.list = items.menu_items;
 }
 
 })();

@@ -4,11 +4,11 @@
 angular.module('Data')
 .controller('CategoryController', CategoryController);
 
-CategoryController.$inject = ['response'];
-function CategoryController(response) {
-  var categories = this;
+CategoryController.$inject = ['categories'];
+function CategoryController(categories) {
+  var $ctrl = this;
 
-  categories.list = response.data;
+  $ctrl.list = categories;
 }
 
 })();
