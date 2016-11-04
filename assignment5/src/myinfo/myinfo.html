@@ -1,0 +1,17 @@
+<div class="container">
+  <span ng-if="myInfoCtrl.userData === undefined">
+    <h2 id="menu-categories-title" class="text-center">Not signed up yet. <a ui-sref="public.signup">Sign up Now!</a></h2>
+  </span>
+  <span ng-if="myInfoCtrl.userData !== undefined">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-6">
+        {{ myInfoCtrl.userData.FirstName }} {{ myInfoCtrl.userData.LastName }}<br/>
+        {{ myInfoCtrl.userData.PhoneNumber }}<br/>
+        <a href="mailto:{{ myInfoCtrl.myinfo.UserData.Email }}">{{ myInfoCtrl.userData.Email }}</a><br/>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-6">
+        <menu-item menu-item="myInfoCtrl.favoriteMenu"></menu-item>
+      </div>
+    </div>
+  </span>
+</div>
